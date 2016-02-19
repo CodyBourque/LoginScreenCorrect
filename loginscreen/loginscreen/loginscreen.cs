@@ -13,36 +13,40 @@ namespace loginscreen
 
     public partial class loginscreen : UserControl
     {
+
+
         public loginscreen()
         {
             InitializeComponent();
 
-            
+
 
             usernameLabel.Text = "Username:";
             passwordLabel.Text = "Password:";
+            label1.Text = "";
 
-            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string correctUsername = "Robert";
-            string correctPassword = "hunter2";
-            string Username = Convert.ToString(usernameInput);
-            string Password = Convert.ToString(passwordInput);
 
-        if(Username == correctUsername && Password == correctPassword)
+            if (usernameInput.Text == Form1.correctUsername && passwordInput.Text == Form1.correctPassword)
             {
+                // f is the form that this control is on - ("this" is the current User Control)
+                Form f = this.FindForm();
+                f.Controls.Remove(this);
                 LoggedIn li = new LoggedIn();
-                this.Controls.Add(li);
+                f.Controls.Add(li);
+                
             }
             else
             {
-
+                label1.Text = "The username or password is incorrect";
             }
         }
+
     }
 
 
-        }
+}
     

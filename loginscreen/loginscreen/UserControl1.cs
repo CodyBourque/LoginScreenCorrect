@@ -15,6 +15,12 @@ namespace loginscreen
         public LoggedIn()
         {
             InitializeComponent();
+            
+        }
+
+        private void LoggedIn_Load(object sender, EventArgs e)
+        {
+            outputLabel.Text = "Welcome" + Form1.correctUsername;
         }
     }
 }
